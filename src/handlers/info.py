@@ -2,7 +2,6 @@ from aiogram import types
 from src.db.database import db
 
 async def get_info(msg: types.Message):
-    db = MovieDatabase(dbname="kinobase", user="postegres", password="kinobase")
     user_data = db.get_user(msg.from_user.id)
     if user_data:
         user_id, first_name, last_name, banned = user_data
