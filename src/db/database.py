@@ -126,7 +126,8 @@ class MovieDatabase:
                     id SERIAL PRIMARY KEY,
                     title VARCHAR(255) NOT NULL,
                     code VARCHAR(50) UNIQUE NOT NULL,
-                    description TEXT
+                    description TEXT,
+                    url VARCHAR(300) NOT NULL
                 )
             """)
             self.connection.commit()
