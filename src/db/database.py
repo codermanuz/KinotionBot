@@ -11,6 +11,7 @@ class MovieDatabase:
         self.connection = None
         self.cursor = None
         self.connect()
+        
 #----------------- DB CONTROL -----------------#
     def connect(self):
         """Ma'lumotlar bazasiga ulanishni amalga oshiradi."""
