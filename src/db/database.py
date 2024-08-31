@@ -120,13 +120,3 @@ class MovieDatabase:
         except Exception as e:
             print(f"Jadval yaratishda xatolik: {e}")
             self.connection.rollback()
-
-# Misol uchun foydalanish
-if __name__ == "__main__":
-    db = MovieDatabase(dbname="kinobase", user="postgres", password="yourpassword")
-    db.create_table()  # Jadval yaratish
-    db.add_movie("Inception", "123ABC", "A mind-bending thriller about dreams within dreams.")  # Kino qo'shish
-    movies = db.fetch_all_movies()  # Barcha kinolarni olish
-    print(movies)
-    db.remove_movie("123ABC")  # Kino o'chirish
-    db.disconnect()  # Ma'lumotlar bazasidan uzilish
