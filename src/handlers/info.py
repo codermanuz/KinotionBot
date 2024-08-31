@@ -8,4 +8,4 @@ async def get_info(msg: types.Message):
         user_id, first_name, last_name, banned = user_data
     else:
         user_id, first_name, last_name, banned = "None", "None", "None", "None"
-    await msg.answer(f"ID: {user_id}, First Name: {first_name}, Last Name: {last_name}, Banned: {banned}")
+    await msg.answer(f"ID: {user_id}\nFirst Name: {first_name}\nLast Name: {last_name}\nBanned: {banned}")
