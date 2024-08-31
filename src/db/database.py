@@ -131,3 +131,5 @@ class MovieDatabase:
         except Exception as e:
             print(f"Jadval yaratishda xatolik: {e}")
             self.connection.rollback()
+
+db = MovieDatabase(dbname="kinobase", user="postgres", password="kinobase")
