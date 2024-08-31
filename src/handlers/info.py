@@ -1,5 +1,5 @@
 from aiogram import types
-from src.db.database import MovieDatabase
+from src.db.database import db
 
 async def get_info(msg: types.Message):
     db = MovieDatabase(dbname="kinobase", user="postegres", password="kinobase")
