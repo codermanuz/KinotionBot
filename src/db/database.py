@@ -11,7 +11,7 @@ class MovieDatabase:
         self.connection = None
         self.cursor = None
         self.connect()
-
+#----------------- DB CONTROL -----------------#
     def connect(self):
         """Ma'lumotlar bazasiga ulanishni amalga oshiradi."""
         try:
@@ -34,7 +34,8 @@ class MovieDatabase:
         if self.connection:
             self.connection.close()
         print("Ma'lumotlar bazasidan muvaffaqiyatli uzilish")
-    
+        
+#----------------- USER CONTROL -----------------#
     def create_user_table(self):
         try:
             self.cursor.execute("""
@@ -79,6 +80,7 @@ class MovieDatabase:
             print(f"Foydalanuvchi ma'lumotlarini olishda xatolik: {e}")
             return None
             
+#----------------- MOVIE CONTROL -----------------#
     def add_movie(self, title, code, description):
         """Yangi kino qo'shadi."""
         try:
