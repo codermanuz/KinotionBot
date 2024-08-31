@@ -67,6 +67,17 @@ class MovieDatabase:
         except Exception as e:
             print(f"Foydalanuvchi qo'shishda xatolik: {e}")
             self.connection.rollback()
+    def get_user(self, user_id):
+        """Foydalanuvchi ma'lumotlarini olish."""
+        try:
+            self.cursor.execute("""
+                SELECT * FROM users WHERE user_id = %s
+            """, (user_id,))
+            user = self.cursor.fetchone()
+            return user
+        except Exception as e:
+            print(f"Foydalanuvchi ma'lumotlarini olishda xatolik: {e}")
+            return None
             
     def add_movie(self, title, code, description):
         """Yangi kino qo'shadi."""
