@@ -7,5 +7,5 @@ async def get_info(msg: types.Message):
     if user_data:
         user_id, first_name, last_name, banned = user_data
     else:
-        user_id, first_name, last_name, banned = "aniqlanmagan"*4
+        user_id, first_name, last_name, banned = "None", "None", "None", "None"
     await msg.answer(f"ID: {user_id}, First Name: {first_name}, Last Name: {last_name}, Banned: {banned}")
