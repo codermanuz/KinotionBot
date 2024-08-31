@@ -82,13 +82,13 @@ class MovieDatabase:
             return None
             
 #----------------- MOVIE CONTROL -----------------#
-    def add_movie(self, title, code, description):
+    def add_movie(self, title, code, description, url):
         """Yangi kino qo'shadi."""
         try:
             self.cursor.execute("""
-                INSERT INTO movies (title, code, description)
-                VALUES (%s, %s, %s)
-            """, (title, code, description))
+                INSERT INTO movies (title, code, description, url)
+                VALUES (%s, %s, %s, %s)
+            """, (title, code, description, url))
             self.connection.commit()
             print("Kino muvaffaqiyatli qo'shildi")
         except Exception as e:
