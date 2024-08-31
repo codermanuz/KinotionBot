@@ -1,8 +1,7 @@
 from aiogram import types
-from src.db.database import MovieDatabase
+from src.db.database import db
 
 # Initialize database
-db = MovieDatabase(dbname="kinobase", user="postgres", password="kinobase")
 db.create_user_table()  # Foydalanuvchilar jadvalini yaratish
 
 async def send_welcome(message: types.Message):
