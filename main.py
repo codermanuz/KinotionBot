@@ -1,7 +1,7 @@
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message
 from src.config import ADMIN_ID, BOT_TOKEN
-
+from src.handlers import router
 import asyncio
 import logging
 
@@ -28,6 +28,7 @@ async def shutdown_func():
 #Create Main function
 async def main():
     dp.startup.register(startup_func)
+    dp.include_router(router)
     dp.shutdown.register(shutdown_func)
     await dp.start_polling(bot)
 
