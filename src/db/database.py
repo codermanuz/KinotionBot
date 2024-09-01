@@ -11,7 +11,8 @@ class MovieDatabase:
         self.connection = None
         self.cursor = None
         self.connect()
-
+        
+#----------------- DB CONTROL -----------------#
     def connect(self):
         """Ma'lumotlar bazasiga ulanishni amalga oshiradi."""
         try:
@@ -34,7 +35,8 @@ class MovieDatabase:
         if self.connection:
             self.connection.close()
         print("Ma'lumotlar bazasidan muvaffaqiyatli uzilish")
-    
+        
+#----------------- USER CONTROL -----------------#
     def create_user_table(self):
         try:
             self.cursor.execute("""
@@ -79,13 +81,14 @@ class MovieDatabase:
             print(f"Foydalanuvchi ma'lumotlarini olishda xatolik: {e}")
             return None
             
-    def add_movie(self, title, code, description):
+#----------------- MOVIE CONTROL -----------------#
+    def add_movie(self, title, code, description, url):
         """Yangi kino qo'shadi."""
         try:
             self.cursor.execute("""
-                INSERT INTO movies (title, code, description)
-                VALUES (%s, %s, %s)
-            """, (title, code, description))
+                INSERT INTO movies (title, code, description, url)
+                VALUES (%s, %s, %s, %s)
+            """, (title, code, description, url))
             self.connection.commit()
             print("Kino muvaffaqiyatli qo'shildi")
         except Exception as e:
@@ -123,7 +126,8 @@ class MovieDatabase:
                     id SERIAL PRIMARY KEY,
                     title VARCHAR(255) NOT NULL,
                     code VARCHAR(50) UNIQUE NOT NULL,
-                    description TEXT
+                    description TEXT,
+                    url VARCHAR(300) NOT NULL
                 )
             """)
             self.connection.commit()
